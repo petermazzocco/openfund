@@ -11,6 +11,8 @@ Created by Peter Mazzocco
 
 To start, please clone the repo.
 
+*This contract requires Hardhat, please research how to install HardHat if you haven't yet*
+
 ### Install dependencies:
 
 ```shell
