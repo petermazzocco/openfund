@@ -20,7 +20,7 @@ error InvalidCampaign();
   @title An open-source crowd funding contract with ultra flexability
   @author Peter Mazzocco
 
-    The OpenFund contract is inspired by Solidity By Example's crowdfunding contract
+    This contract is inspired by Solidity By Example's crowdfunding contract
     (https://solidity-by-example.org/app/crowd-fund/). I've included additional
     events, functions, constructor arguments and custom errors for better flexibility
     and gas efficiency (shared by Chiru Labs and their ERC-721A contract). 
@@ -201,14 +201,14 @@ contract OpenFund {
     */
     function pledgeTo(uint _id) external payable {
         Campaign storage campaign = campaigns[_id];
+        if (msg.value <= 0) {
+            revert InvalidAmount();
+        }
         if (block.timestamp < campaign.startAt) {
             revert InvalidStartDate();
         }
         if (block.timestamp > campaign.endAt) {
             revert InvalidEndDate();
-        }
-        if (msg.value <= 0) {
-            revert InvalidAmount();
         }
         // Prevent reentry
         campaign.pledged += msg.value;
@@ -279,6 +279,9 @@ contract OpenFund {
     */
     function boost(uint _id) external payable {
         Campaign storage campaign = campaigns[_id];
+        if (msg.value != boostPrice) {
+            revert InvalidAmount();
+        }
         if (campaign.cancelled) {
             revert AlreadyCancelled();
         }
@@ -287,9 +290,6 @@ contract OpenFund {
         }
         if (block.timestamp >= campaign.endAt) {
             revert InvalidEndDate();
-        }
-        if (msg.value != boostPrice) {
-            revert InvalidAmount();
         }
         // Set highlighted to true
         campaign.highlighted = true;
