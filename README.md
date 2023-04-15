@@ -47,11 +47,11 @@ To start, make sure you fill out the necessary constructor arguments in the `dep
 
 ```shell
   const OpenFund = await hre.ethers.getContractFactory("OpenFund");
-  const deployer =  <--YOUR ADDRESS--> ;
+  const deployer = " <--YOUR ADDRESS--> ";
   const amount = ethers.utils.parseEther("<--ENTER AMOUNT IN ETHER-->");
   const campaignLength = <--AMOUNT OF DAYS IN SECONDS-->;
   const rateLimit = <--AMOUNT OF DAYS IN SECONDS-->;
-  const openFun = await OpenFund.deploy(deployer, amount, rateLimit, campaignLength);
+  const openFund = await OpenFund.deploy(deployer, amount, rateLimit, campaignLength);
 ```
 
 ```shell
