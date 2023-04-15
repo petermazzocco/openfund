@@ -19,6 +19,7 @@ npm i
 
 Configure your network settings by heading to `hardhat.config.js`.
 Choose the network you wish to deploy to and enter your key/url from your `.env`.
+You cannot do anything until you have configured this.
 
 ### Compile contract:
 
