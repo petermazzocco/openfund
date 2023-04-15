@@ -38,7 +38,7 @@ npx hardhat test
 ### Run hardhat node:
 
 ```shell
-npx hardhat note
+npx hardhat node
 ```
 
 ### Split terminal and deploy to local network:
@@ -58,11 +58,11 @@ To start, make sure you fill out the necessary constructor arguments in the `dep
 npx hardhat run scripts/deploy.js
 ```
 
-This will deploy a contrac to your local node via HardHat. We just want to confirm everything works properly
+This will deploy a contract to your local node via HardHat. We just want to confirm everything works properly. Every address deployed to this local node is the same so do not use this for any reason.
 
-### Deploy to network
+### Deploy to network of your choosing.
 
-Once you are ready, and all tests and compiling has passed, you can deploy to your test or mainnet of choosing:
+Once you are ready, all tests and compiling has passed, then you can deploy to your test or mainnet of choosing:
 
 ```shell
 npx hardhat run scripts/deploy.js --network-(networkname)
