@@ -10,11 +10,11 @@ const hre = require("hardhat");
 
 async function main() {
   const OpenFund = await hre.ethers.getContractFactory("OpenFund");
-  const deployer = "0xD6D7fE937a64dE974923e2f80b44DA3B18BdCc13";
-  const amount = ethers.utils.parseEther("0.001");
-  const campaignLength = 2592000; // 30 days
+  const deployer = ""; // Add your address
+  const amount = ethers.utils.parseEther("0"); // add your amount
+  const campaignLength = 2592000; // default 30 days
   const days = campaignLength / 86400; // for console log
-  const rateLimit = 86400; // 24 hours
+  const rateLimit = 86400; // default 24 hours
   const openFund = await OpenFund.deploy(
     deployer,
     amount,
